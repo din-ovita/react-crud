@@ -1,0 +1,8 @@
+.navbar {
+    background-color: rgb(49, 145, 49);
+    padding-left: 8%;
+    padding-right: 8%;
+}
+.navbar a{
+    color: rgb(253, 242, 222);
+}

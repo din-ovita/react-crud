@@ -1,0 +1,14 @@
+.edit {
+    background-color: rgb(49, 145, 49);
+}
+.container {
+    padding: 2%;
+}
+.buton {
+    background-color: rgb(141, 219, 250);
+    font-size: 18px;
+    font-weight: 500;
+}
+strong {
+    font-size: 20px;
+}
