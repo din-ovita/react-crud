@@ -6,7 +6,9 @@
 .navbar a{
     color: rgb(253, 242, 222);
 }
-
+.navbar .btn {
+    color: rgb(253, 242, 222);
+}
 .header{
     background-color: rgb(49, 145, 49);
 }

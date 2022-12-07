@@ -2,7 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Form, InputGroup  } from 'react-bootstrap'
 import { useHistory, useParams } from 'react-router-dom';
-import '../style/edit.css'
+import '../style/edit.css';
+import Swal from 'sweetalert2';
 
 export default function Edit() {
     // deklarasi tetap untuk membuat method
@@ -14,7 +15,7 @@ export default function Edit() {
 
     const history = useHistory();
 
-    useEffect(() => {
+    useEffect(() => { //method get (menampilkan)
         axios
         .get("http://localhost:8000/daftarBuku/" + param.id)
         .then((response) => {
@@ -29,7 +30,7 @@ export default function Edit() {
         });
     }, []);
 
-    const submitActionHandler = async (event) => { //menjalankan perintah 
+    const submitActionHandler = async (event) => { //menjalankan perintah put (update)
         event.preventDefault();
 
         await axios
@@ -39,8 +40,12 @@ export default function Edit() {
             pengarang : pengarang,
             tahunTerbit : tahunTerbit
         })
+        Swal.fire(
+            'Update Berhasil',
+            'Data berhasil diupdate!',
+            'success'
+          ) 
         .then(() => {
-            alert("Berhasil mengubah data user ygy..");
             history.push("/");
             window.location.reload();
         })
@@ -61,7 +66,7 @@ export default function Edit() {
                         <Form.Control 
                         placeholder="Judul.."
                         value={judul}
-                        onChange={(e) => setJudul(e.target.value)}
+                        onChange={(e) => setJudul(e.target.value)}  //untuk 
                         />
                     </InputGroup>
                 </div>

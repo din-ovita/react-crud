@@ -1,46 +1,18 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "username": "riu",
+      "password": "www"
+    }
+  ],
   "daftarBuku": [
     {
-      "judul": "Si Kancil",
-      "deskripsi": "Si Kancil ini mencuri timun",
-      "pengarang": "Khoirul Nisa",
-      "tahunTerbit": "1889-12-05",
+      "judul": "dd",
+      "deskripsi": "dd",
+      "pengarang": "ddd",
+      "tahunTerbit": "2023-01-06",
       "id": 1
-    },
-    {
-      "id": 4,
-      "judul": "Bumi",
-      "deskripsi": "Menceritakan tiga sahabat yang berpetualang di klan lain",
-      "pengarang": "Tere Liye",
-      "tahunTerbit": "2014-12-08"
-    },
-    {
-      "judul": "Bulan",
-      "deskripsi": "Buku kedua dari serial BUMI",
-      "pengarang": "Tere Liye",
-      "id": 5,
-      "tahunTerbit": "2015-09-12"
-    },
-    {
-      "judul": "Matahari ",
-      "deskripsi": "Buku ketiga dari serial BUMI",
-      "pengarang": "Tere Liye",
-      "tahunTerbit": "2016-04-12",
-      "id": 6
-    },
-    {
-      "judul": "Bintang",
-      "deskripsi": "Buku keempat dari series BUMI, Matahari",
-      "pengarang": "Tere Liye",
-      "tahunTerbit": "2022-12-24",
-      "id": 7
-    },
-    {
-      "judul": "Komet",
-      "deskripsi": "Buku kelima dari series BUMI",
-      "pengarang": "Tere Liye",
-      "tahunTerbit": "2022-12-06",
-      "id": 8
     }
   ]
 }

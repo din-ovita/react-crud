@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Form, InputGroup, Modal } from 'react-bootstrap';
-import '../style/navbar.css'
+import '../style/navbar.css';
+import Swal from 'sweetalert2';
+import { useHistory } from 'react-router-dom';
 
 export default function NavBar() {
   const [show, setShow] = useState(false);
@@ -10,10 +12,12 @@ export default function NavBar() {
   const [pengarang, setPengarang] = useState("");
   const [tahunTerbit, setTahunTerbit] = useState("");
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const history = useHistory();
 
-  const addUser = async (e) => {
+  const handleClose = () => setShow(false); //membuat kondisi, false = tidak ditampilkan
+  const handleShow = () => setShow(true); //true = ditambilkan
+
+  const addUser = async (e) => { //method tambah
     e.preventDefault();
 
     const data = {
@@ -25,12 +29,23 @@ export default function NavBar() {
 
     await axios
     .post("http://localhost:8000/daftarBuku/", data)
+    Swal.fire(
+      'Success',
+      'Data berhasil ditambahkan!',
+      'success'
+    )
     .then(() => {
       window.location.reload();
     })
     .catch((error) => {
       alert("Terjadi kesalahan " + error);
     });
+  };
+
+  const logout = () => {
+    window.location.reload();
+    localStorage.clear();
+    history.push("/");
   };
 
   return (
@@ -47,16 +62,29 @@ export default function NavBar() {
           <a className="nav-link" aria-current="page" href="#">Home</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Link</a>
+          <a className="nav-link" href="#">Tabel</a>
         </li>
-        <li>
-          <a className="btn" onClick={handleShow}>Tambah Buku</a>
-        </li>
+
+        {localStorage.getItem("id") !== null ? (
+          <>
+          <li className="nav-item">
+            <button className="btn" onClick={handleShow}>Tambah Buku</button>
+          </li>
+          <li className="nav-item float-right">
+            <a className="btn" onClick={logout}>Logout</a>
+          </li>
+          </>
+        ) : (
+          <li className="nav-item float-right">
+            <a className="btn" href="/login">Login</a>
+          </li>
+        )}
       </ul>
     </div>
   </div>
 </nav>
 
+{/* membuat modal */}
   <Modal show={show} onHide={handleClose}>
     <Modal.Header closeButton className='header'>
       <Modal.Title>Add User</Modal.Title>
